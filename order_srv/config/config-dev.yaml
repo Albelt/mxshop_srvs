@@ -1,0 +1,38 @@
+server:
+  ip: 0.0.0.0
+  port: 8084
+  name: order-srv
+  tags:
+    - order
+    - grpc
+  external_ip: 192.168.5.177
+  debug: true
+mysql:
+  addr: ubuntu-learn:3306
+  user: root
+  password: Albelt2017Go
+  db: mxshop_srvs
+  slow_threshold: 2
+redis:
+  addr: ubuntu-learn:6379
+  password: Albelt2017Go
+  db: 10
+consul:
+  addr: ubuntu-learn:8500
+  health_check:
+    interval: 10s
+    timeout: 5s
+    deregister: 1m
+grpc_srvs:
+  goods_srv_name: goods-srv
+  stock_srv_name: stock-srv
+rocket_mq:
+  name_server: 192.168.5.199:9876
+  producer_group_name: order_srv_producer
+  consumer_group_name: order_srv_consumer
+  retry: 2
+  create_topic: order_create
+  delay_topic: order_delay
+  delay_level: 5
+tracing:
+  jaeger_addr: ubuntu-learn:6831

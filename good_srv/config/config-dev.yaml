@@ -1,0 +1,27 @@
+server:
+  ip: 0.0.0.0
+  port: 8082
+  name: goods-srv
+  tags:
+    - good
+    - grpc
+  external_ip: 192.168.5.177
+  debug: true
+mysql:
+  addr: ubuntu-learn:3306
+  user: root
+  password: Albelt2017Go
+  db: mxshop_srvs
+  slow_threshold: 2
+redis:
+  addr: ubuntu-learn:6379
+  password: Albelt2017Go
+  db: 10
+consul:
+  addr: ubuntu-learn:8500
+  health_check:
+    interval: 10s
+    timeout: 5s
+    deregister: 1m
+es:
+  addr: ubuntu-learn:9200
